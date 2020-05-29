@@ -61,7 +61,7 @@ def trend():
     query = request.args.get("query")
     res = {}
     res["url"] = qt.plot_trend(query, 1000)
-    os.system('aws s3 sync /root/ec2-deploy-test-embedding/plot.png s3://covid19-python-backend-data/plot.png')
+    os.system("aws s3 sync /root/ec2-deploy-test-embedding s3://covid19-python-backend-data/ --exclude='*' --include='*/plot.png'")
     return res
 
 # This is the main funtion
