@@ -1,6 +1,6 @@
 import time
 import gensim
-import shutil
+import os
 
 from flask import Flask, request
 from one_sentence_embedding import one_sentence_embedding
@@ -61,7 +61,7 @@ def trend():
     query = request.args.get("query")
     res = {}
     res["url"] = qt.plot_trend(query, 1000)
-    shutil.copyfile(str(res["url"]), '/root/aws-ec2-deploy-test-frontend/info-retrieval-frontend/src/assets/img/' + str(res["url"]))
+    os.system('aws s3 sync plot.png s3://covid19-python-backend-data/plot.png')
     return res
 
 # This is the main funtion
