@@ -61,7 +61,7 @@ def trend():
     query = request.args.get("query")
     res = {}
     res["url"] = qt.plot_trend(query, 1000)
-    shutil.copyfile(str(res["url"], '/root/aws-ec2-deploy-test-frontend/info-retrieval-frontend/src/assets/img/' + str(res["url"])
+    shutil.copyfile(str(res["url"], '/root/aws-ec2-deploy-test-frontend/info-retrieval-frontend/src/assets/img/' + str(res["url"]))
     return res
 
 # This is the main funtion
