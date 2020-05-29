@@ -39,7 +39,7 @@ class query_trend():
         fig.suptitle(query, fontsize=15)
         plt.xlabel('Time', fontsize=10)
         plt.ylabel('Similarity', fontsize=10)
-        filename = query.rstrip().replace(" ", "_") + '_.png'
+        filename ='plot.png'
         fig.savefig(filename)
         # It will return the file name rather than the file's absolute path
         return filename  #os.path.join(os.getcwd(), filename)
