@@ -1,12 +1,11 @@
 import numpy as np
 import scipy.linalg as scipy_linalg
-import gensim
 
 class one_sentence_embedding():
 
-    def __init__(self, weighting, w2v_file, dimension):
+    def __init__(self, weighting, w2v_model, dimension):
         self.bm25_weighting = weighting
-        self.model = gensim.models.KeyedVectors.load_word2vec_format(w2v_file, binary=True)
+        self.model = w2v_model
         self.dimension = dimension
 
     def sentence_to_vector(self, sentence):
