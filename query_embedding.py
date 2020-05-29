@@ -1,5 +1,6 @@
 import time
 import gensim
+import shutil
 
 from flask import Flask, request
 from one_sentence_embedding import one_sentence_embedding
@@ -7,6 +8,7 @@ from bm25_weighting import bm25_weighting
 from preprocessing_utils import preprocessing_utils
 from write_float import document_embedding_date
 from query_trend import query_trend
+
 
 # http://127.0.0.1:5000
 app = Flask(__name__)
@@ -59,6 +61,7 @@ def trend():
     query = request.args.get("query")
     res = {}
     res["url"] = qt.plot_trend(query, 1000)
+    shutil.copyfile('./plot.png', '/root/aws-ec2-deploy-test-frontend/info-retrieval-frontend/src/assets/img/plot.png')
     return res
 
 # This is the main funtion
